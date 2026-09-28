@@ -1,77 +1,149 @@
-# Sistema de Gestión - Fundación María de Caná
+# Sistema de gestión de proyectos
 
-Este repositorio contiene el prototipo funcional desarrollado para el **Trabajo Práctico 1 (TP1)** de la materia **Seminario de Práctica de Informática** (Universidad Siglo 21).
+Repositorio del proyecto académico desarrollado para la materia **Seminario de Práctica de Informática** de la Universidad Siglo 21.
 
-El proyecto consiste en un Sistema de Información de Apoyo a la Administración (MIS) diseñado para ayudar a la **Fundación María de Caná** a gestionar sus proyectos solidarios, realizar el seguimiento de hitos/tareas y visualizar métricas mediante un tablero de control (dashboard).
+El sistema está orientado a la Fundación María de Caná. Su objetivo es centralizar la gestión de proyectos solidarios, hitos, responsables, costos e indicadores de seguimiento.
 
-## 🛠️ Tecnologías Utilizadas
+## Trabajos prácticos
 
-*   **Lenguaje:** Java (Aplicación de consola)
-*   **Base de Datos:** MySQL
-*   **Conexión:** JDBC (Java Database Connectivity)
-*   **Arquitectura:** Patrón MVC (Modelo-Vista-Controlador)
+### TP1
 
-## 📁 Estructura del Proyecto
+El TP1 define el problema, los objetivos, el alcance, el conocimiento del negocio, los requisitos y los casos de uso del sistema.
 
-El código está organizado siguiendo el patrón MVC para asegurar una alta cohesión y bajo acoplamiento:
+### TP2
 
-*   `/config`: Configuración de la conexión a la base de datos MySQL.
-*   `/models`: Entidades del sistema (Ej: `Proyecto.java`, `Usuario.java`).
-*   `/controllers`: Lógica de negocio y consultas SQL (Ej: `ProyectoController.java`).
-*   `/views`: Interfaz de usuario (consola interactiva en `Main.java`).
-*   `database.sql`: Script completo para la creación de la base de datos, tablas y carga de datos de prueba.
+El TP2 desarrolla los siguientes aspectos:
 
-## 🚀 Instrucciones de Ejecución
+- Aplicación del Proceso Unificado de Desarrollo (PUD).
+- Diagramas UML de análisis, diseño e implementación.
+- Prototipos visuales de interfaces orientadas a JavaFX.
+- Modelo relacional de la base de datos.
+- Diagrama entidad-relación.
+- Scripts SQL de creación, inserción, consulta, actualización y borrado.
+- Plan y casos de prueba.
+- Definiciones de comunicación mediante JavaFX, JDBC y MySQL.
+- Evidencias de ejecución de la base de datos.
 
-1. **Configurar la Base de Datos:**
-   * Importa el archivo `database.sql` en tu motor MySQL local para crear la base de datos `fundacion_cana` y poblarla con los datos iniciales.
+## Tecnologías
 
-2. **Configurar la Conexión JDBC:**
-   * Verifica que tienes el driver `mysql-connector-j` configurado en tu entorno.
-   * Abre el archivo `config/ConexionDB.java` y ajusta las variables `USER` y `PASSWORD` según las credenciales de tu servidor local.
+- Java.
+- JavaFX como tecnología prevista para las interfaces de escritorio.
+- MySQL 8.
+- JDBC (Java Database Connectivity).
+- Arquitectura Modelo-Vista-Controlador (MVC).
+- Docker para ejecutar MySQL de forma local.
 
-3. **Compilar y Ejecutar:**
-   * Puedes abrir el proyecto desde tu IDE de Java favorito o compilarlo directamente desde la terminal.
-   * Ejecuta la clase `views.Main` para iniciar el sistema interactivo por consola.
+## Estructura del repositorio
 
----
-**Autor:** Matías Domínguez Alonso
-**Materia:** Seminario de Práctica de Informática# Sistema de Gestión - Fundación María de Caná
+```text
+.
+├── database/
+│   ├── schema.sql
+│   ├── seed.sql
+│   ├── queries.sql
+│   ├── dbdiagram.dbml
+│   ├── diagrama-entidad-relacion.png
+│   └── README.md
+├── tp2_capturas_sql/
+│   ├── 01-tablas-creadas.png
+│   ├── 02-datos-insertados.png
+│   ├── 03-consulta-con-resultados.png
+│   ├── 04-actualizacion-hito.png
+│   └── 05-borrado-verificacion.png
+├── ConexionDB.java
+├── Main.java
+├── Proyecto.java
+├── ProyectoController.java
+└── database.sql
+```
 
-Este repositorio contiene el prototipo funcional desarrollado para el **Trabajo Práctico 1 (TP1)** de la materia **Seminario de Práctica de Informática** (Universidad Siglo 21).
+## Base de datos
 
-El proyecto consiste en un Sistema de Información de Apoyo a la Administración (MIS) diseñado para ayudar a la **Fundación María de Caná** a gestionar sus proyectos solidarios, realizar el seguimiento de hitos/tareas y visualizar métricas mediante un tablero de control (dashboard).
+La base se denomina `fundacion_cana` y utiliza MySQL con el motor InnoDB.
 
-## 🛠️ Tecnologías Utilizadas
+El modelo incluye las tablas:
 
-*   **Lenguaje:** Java (Aplicación de consola)
-*   **Base de Datos:** MySQL
-*   **Conexión:** JDBC (Java Database Connectivity)
-*   **Arquitectura:** Patrón MVC (Modelo-Vista-Controlador)
+- `roles`.
+- `usuarios`.
+- `proyectos`.
+- `hitos`.
+- `asignaciones`.
+- `costos`.
 
-## 📁 Estructura del Proyecto
+La documentación y los scripts se encuentran en [`database/`](database/).
 
-El código está organizado siguiendo el patrón MVC para asegurar una alta cohesión y bajo acoplamiento:
+### Orden de ejecución
 
-*   `/config`: Configuración de la conexión a la base de datos MySQL.
-*   `/models`: Entidades del sistema (Ej: `Proyecto.java`, `Usuario.java`).
-*   `/controllers`: Lógica de negocio y consultas SQL (Ej: `ProyectoController.java`).
-*   `/views`: Interfaz de usuario (consola interactiva en `Main.java`).
-*   `database.sql`: Script completo para la creación de la base de datos, tablas y carga de datos de prueba.
+1. Ejecutar [`database/schema.sql`](database/schema.sql).
+2. Ejecutar [`database/seed.sql`](database/seed.sql).
+3. Ejecutar las consultas de [`database/queries.sql`](database/queries.sql).
 
-## 🚀 Instrucciones de Ejecución
+### Modelo entidad-relación
 
-1. **Configurar la Base de Datos:**
-   * Importa el archivo `database.sql` en tu motor MySQL local para crear la base de datos `fundacion_cana` y poblarla con los datos iniciales.
+El modelo editable se encuentra en [`database/dbdiagram.dbml`](database/dbdiagram.dbml).
 
-2. **Configurar la Conexión JDBC:**
-   * Verifica que tienes el driver `mysql-connector-j` configurado en tu entorno.
-   * Abre el archivo `config/ConexionDB.java` y ajusta las variables `USER` y `PASSWORD` según las credenciales de tu servidor local.
+La imagen del diagrama se encuentra en [`database/diagrama-entidad-relacion.png`](database/diagrama-entidad-relacion.png).
 
-3. **Compilar y Ejecutar:**
-   * Puedes abrir el proyecto desde tu IDE de Java favorito o compilarlo directamente desde la terminal.
-   * Ejecuta la clase `views.Main` para iniciar el sistema interactivo por consola.
+## Ejecución con Docker
 
----
-**Autor:** Matías Domínguez Alonso
-**Materia:** Seminario de Práctica de Informática
+Crear el contenedor MySQL:
+
+```bash
+docker run --name fundacion-mysql \
+  -e MYSQL_ROOT_PASSWORD=tp2demo \
+  -p 3306:3306 \
+  -d mysql:8.0
+```
+
+Ejecutar los scripts desde la raíz del repositorio:
+
+```bash
+docker exec -i fundacion-mysql mysql -uroot -ptp2demo < database/schema.sql
+docker exec -i fundacion-mysql mysql -uroot -ptp2demo < database/seed.sql
+docker exec -i fundacion-mysql mysql -uroot -ptp2demo < database/queries.sql
+```
+
+La contraseña `tp2demo` es solo para pruebas locales.
+
+## Evidencias SQL
+
+Las capturas utilizadas en el TP2 se encuentran en [`tp2_capturas_sql/`](tp2_capturas_sql/).
+
+Incluyen evidencias de:
+
+- Creación de tablas.
+- Inserción de datos.
+- Consulta con resultados.
+- Actualización de un hito.
+- Borrado controlado y verificación.
+
+## Estado del prototipo
+
+El prototipo Java actual permite registrar y listar proyectos mediante JDBC.
+
+El diseño del TP2 define la evolución hacia:
+
+- Autenticación por rol.
+- Gestión de hitos.
+- Asignación de responsables.
+- Registro de costos.
+- Tablero de control.
+- Alertas por atraso y desvío presupuestario.
+- Interfaces de escritorio JavaFX.
+
+Las funciones diseñadas pero no implementadas se presentan como alcance futuro. No se consideran funcionalidades terminadas.
+
+## Repositorio
+
+Repositorio principal:
+
+https://github.com/mdominguez56/UES21-seminario-practica-informatica
+
+Carpeta de base de datos:
+
+https://github.com/mdominguez56/UES21-seminario-practica-informatica/tree/main/database
+
+## Autor
+
+Matías Domínguez Alonso  
+Materia: Seminario de Práctica de Informática
